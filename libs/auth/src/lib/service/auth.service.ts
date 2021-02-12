@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
 import { OperationResult } from '@frontend/data';
 import { Auth } from 'aws-amplify';

@@ -9,13 +9,23 @@
       <a [routerLink]="['/']">
         <img src="assets/logo/Logo_Schriftzug@2x.png" width="293" />
       </a>
-      <span class="stage" [class.dev]="stage === 'dev'" [class.qa]="stage === 'qa'" [class.prod]="stage === 'prod'">
+      <span
+        class="stage"
+        [class.dev]="stage === 'dev'"
+        [class.qa]="stage === 'qa'"
+        [class.prod]="stage === 'prod'"
+      >
         Admin {{ stage | uppercase }}
       </span>
     </div>
     <span class="spacer"></span>
 
-    <button mat-raised-button color="accent" (click)="login()" *ngIf="!loggedIn">
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="login()"
+      *ngIf="!loggedIn"
+    >
       Login
     </button>
   </mat-toolbar>
@@ -23,7 +33,9 @@
     <mat-drawer #drawer class="drawer" mode="over">
       <mat-nav-list>
         <mat-list-item *ngFor="let link of links" [routerLink]="link.link">
-          <a matLine [routerLink]="[link.link]" (click)="drawer.toggle()">{{ link.text }}</a>
+          <a matLine [routerLink]="[link.link]" (click)="drawer.toggle()">{{
+            link.text
+          }}</a>
         </mat-list-item>
       </mat-nav-list>
     </mat-drawer>
