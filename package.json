@@ -1,7 +1,6 @@
 {
   "name": "frontend",
   "version": "0.0.0",
-  "license": "MIT",
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
@@ -30,14 +29,21 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^11.0.0",
+    "@angular/cdk": "^11.1.2",
     "@angular/common": "^11.0.0",
     "@angular/compiler": "^11.0.0",
     "@angular/core": "^11.0.0",
     "@angular/forms": "^11.0.0",
+    "@angular/material": "^11.1.2",
     "@angular/platform-browser": "^11.0.0",
     "@angular/platform-browser-dynamic": "^11.0.0",
     "@angular/router": "^11.0.0",
+    "@ngxs/devtools-plugin": "^3.7.1",
+    "@ngxs/logger-plugin": "^3.7.1",
+    "@ngxs/store": "^3.7.1",
     "@nrwl/angular": "11.2.7",
+    "@swimlane/ngx-charts": "^17.0.0",
+    "aws-amplify": "^3.3.17",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "^0.10.2"
@@ -66,11 +72,15 @@
     "eslint": "7.10.0",
     "eslint-config-prettier": "6.0.0",
     "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsdoc": "^31.6.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
     "jest": "26.2.2",
     "jest-preset-angular": "8.3.2",
     "prettier": "2.2.1",
     "ts-jest": "26.4.0",
     "ts-node": "~9.1.1",
-    "typescript": "~4.0.3"
+    "typescript": "~4.0.3",
+    "webpack": "4.18.1"
   }
 }

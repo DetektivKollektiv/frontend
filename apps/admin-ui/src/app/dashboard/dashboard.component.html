@@ -1,0 +1,26 @@
+<div class="card-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Open Items</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="item-count">{{(openItems$ | async).length}}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Unconfirmed Items</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="item-count">{{(unconfirmedItems$ | async).length}}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Closed Items</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="item-count">{{(closedItems$ | async).length}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

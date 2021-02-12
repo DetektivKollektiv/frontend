@@ -1,0 +1,82 @@
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th,
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.mat-column-select {
+  overflow: initial;
+}
+
+.w-75 {
+  width: 75px;
+}
+
+.w-100 {
+  width: 100px;
+}
+
+.w-150 {
+  width: 150px;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.row:not(.expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.row td {
+  border-bottom-width: 0;
+}
+
+.detail {
+  max-width: 80%;
+  display: flex;
+  white-space: normal;
+}
+
+.description {
+  padding: 16px;
+}
+
+.description-attribution {
+  opacity: 0.5;
+}
+
+.table-commandbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.table-commandbar > * {
+  margin: 0 10px;
+}
+
+.filter {
+  flex: 1 1 auto;
+}

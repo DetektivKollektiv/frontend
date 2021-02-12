@@ -17,6 +17,9 @@
   },
   "projects": {
     "admin-ui": { "tags": [] },
-    "admin-ui-e2e": { "tags": [], "implicitDependencies": ["admin-ui"] }
+    "admin-ui-e2e": { "tags": [], "implicitDependencies": ["admin-ui"] },
+    "ui": { "tags": [] },
+    "data": { "tags": [] },
+    "auth": { "tags": [] }
   }
 }
