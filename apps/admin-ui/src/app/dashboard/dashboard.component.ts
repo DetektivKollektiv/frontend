@@ -1,9 +1,6 @@
-import { group } from '@angular/animations';
-import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
-import { Component, OnInit } from '@angular/core';
-import { Select, Store } from '@ngxs/store';
+import { Component } from '@angular/core';
+import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { groupBy, mergeMap } from 'rxjs/operators';
 import { Item } from '../model/item';
 import { ItemsState } from '../store/items/items.state';
 
