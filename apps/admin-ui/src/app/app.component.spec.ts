@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { UiModule } from '@frontend/ui';
 import { AuthService } from '@frontend/auth';
-import { MockAuthService } from '../test/mock/mock-auth.service';
+import { MockAuthService } from '@frontend/auth';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {

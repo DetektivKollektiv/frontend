@@ -5,3 +5,4 @@ export * from './lib/dialogs/login/login.component';
 export * from './lib/dialogs/confirm/confirm.component';
 export * from './model/login-result';
 export * from './helper/globals';
+export * from './test/mock/mock-auth.service';

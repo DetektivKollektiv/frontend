@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableToolbarComponent } from './table-toolbar.component';
 
+import { UiModule } from '../ui.module';
+
 describe('TableToolbarComponent', () => {
   let component: TableToolbarComponent;
   let fixture: ComponentFixture<TableToolbarComponent>;
@@ -9,6 +11,7 @@ describe('TableToolbarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TableToolbarComponent],
+      imports: [UiModule],
     }).compileComponents();
   });
 
