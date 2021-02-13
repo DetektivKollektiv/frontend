@@ -11,8 +11,8 @@ phases:
       - npm install -g nx
       - yarn install
       # - yarn run format:check
-      - yarn run affected:lint
-      - yarn run affected:test
+      - yarn run lint
+      - yarn run test
   build:
     commands:
-      - yarn run affected:build
+      - yarn run build
