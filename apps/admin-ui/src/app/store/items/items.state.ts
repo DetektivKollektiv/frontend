@@ -1,9 +1,9 @@
-import { Injectable, SkipSelf } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Action, NgxsOnInit, Selector, State, StateContext } from '@ngxs/store';
 import { tap } from 'rxjs/operators';
 import { Item } from '../../model/item';
 import { ItemsService } from '../../services/items/items.service';
-import { FetchAllItems, UpdateItem, UpdateItemStatus } from './items.actions';
+import { FetchAllItems, UpdateItem } from './items.actions';
 import { patch, updateItem } from '@ngxs/store/operators';
 
 export class ItemsStateModel {

@@ -1,10 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ForgotPasswordComponent } from './forgot-password.component';
-import { AuthService } from '../../auth-service/auth.service';
-import { MockAuthService } from '../../../../../test/mocks/mock-auth.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MaterialModule } from '../../../material/material.module';
+import { UiModule } from '@frontend/ui';
+import { AuthService } from '../../service/auth.service';
+import { MockAuthService } from '../../../test/mock/mock-auth.service';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ForgotPasswordComponent', () => {
   let component: ForgotPasswordComponent;
@@ -12,7 +13,7 @@ describe('ForgotPasswordComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule],
+      imports: [UiModule.forRoot(), NoopAnimationsModule],
       declarations: [ForgotPasswordComponent],
       providers: [
         { provide: AuthService, useClass: MockAuthService },

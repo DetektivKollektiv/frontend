@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { UiModule } from '../ui.module';
 
 import { LoaderComponent } from './loader.component';
 
@@ -9,6 +10,7 @@ describe('LoaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LoaderComponent],
+      imports: [UiModule.forRoot()],
     }).compileComponents();
   });
 

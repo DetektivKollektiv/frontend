@@ -17,7 +17,9 @@ describe('AuthService', () => {
       federationTarget: 'COGNITO_USER_POOLS',
     });
 
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [AuthService],
+    });
     service = TestBed.inject(AuthService);
   });
 

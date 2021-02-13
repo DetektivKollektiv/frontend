@@ -1,10 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SignupComponent } from './signup.component';
-import { AuthService } from '../../auth-service/auth.service';
-import { MockAuthService } from '../../../../../test/mocks/mock-auth.service';
 import { MatDialogRef } from '@angular/material/dialog';
-import { MaterialModule } from '../../../material/material.module';
+import { UiModule } from '@frontend/ui';
+import { AuthService } from '../../service/auth.service';
+import { MockAuthService } from '../../../test/mock/mock-auth.service';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('SignupComponent', () => {
   let component: SignupComponent;
@@ -12,7 +13,7 @@ describe('SignupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule],
+      imports: [UiModule.forRoot(), NoopAnimationsModule],
       declarations: [SignupComponent],
       providers: [
         { provide: AuthService, useClass: MockAuthService },

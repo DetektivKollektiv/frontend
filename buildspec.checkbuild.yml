@@ -1,0 +1,18 @@
+
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: latest
+  pre_build:
+    commands:
+      - npm install -g @angular/cli
+      - npm install -g yarn
+      - npm install -g nx
+      - yarn install
+      # - yarn run format:check
+      - yarn run lint
+      - yarn run test
+  build:
+    commands:
+      - yarn run build
