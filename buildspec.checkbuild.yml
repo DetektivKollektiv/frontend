@@ -8,11 +8,10 @@ phases:
     commands:
       - npm install -g @angular/cli
       - npm install -g yarn
-      - npm install -g nx
+      - git fetch --all
       - yarn install
-      # - yarn run format:check
-      - yarn run lint
-      - yarn run test
+      - yarn nx affected --target=test --base=$GIT_BASE
+      - yarn nx affected --target=lint --base=$GIT_BASE
   build:
     commands:
-      - yarn run build
+      - yarn nx affected --target=build --base=$GIT_BASE --configuration=$BUILD_CONFIGURATION
