@@ -7,25 +7,19 @@ phases:
     commands:
       - npm install -g @angular/cli
       - npm install -g yarn
+      - git fetch --all
       - yarn install
-      - yarn run lint
-      - yarn run test:headless
+      - yarn nx affected --target=test --base=$GIT_BASE
+      - yarn nx affected --target=lint --base=$GIT_BASE
   build:
     commands:
-      - yarn run build:$STAGE
-  post_build:
-    commands:
-      - aws s3 rm $S3_BUCKET --recursive
+      - yarn nx affected --target=build --base=$GIT_BASE --configuration=$BUILD_CONFIGURATION
+  # post_build:
+  #   commands:
+  #     - aws s3 rm $S3_BUCKET --recursive
 artifacts:
   files:
     - '**/*'
   name: artifact-name
-  base-directory: 'dist/detektiv-kollektiv'
+  base-directory: 'dist'
   discard-paths: no
-  secondary-artifacts:
-    documentation:
-      files:
-        - '**/*'
-      name: documentation
-      discard-paths: no
-      base-directory: 'dist/documentation'

@@ -10,8 +10,8 @@ phases:
       - npm install -g yarn
       - git fetch --all
       - yarn install
-      - yarn nx affected --target=test --base=origin/develop
-      - yarn nx affected --target=lint --base=origin/develop
+      - yarn nx affected --target=test --base=$GIT_BASE
+      - yarn nx affected --target=lint --base=$GIT_BASE
   build:
     commands:
-      - yarn nx affected --target=build --base=origin/develop --configuration=dev
+      - yarn nx affected --target=build --base=$GIT_BASE --configuration=$BUILD_CONFIGURATION
