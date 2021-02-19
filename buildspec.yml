@@ -7,13 +7,12 @@ phases:
     commands:
       - npm install -g @angular/cli
       - npm install -g yarn
-      - git fetch --all
       - yarn install
-      - yarn nx affected --target=test --base=$GIT_BASE
-      - yarn nx affected --target=lint --base=$GIT_BASE
+      - yarn nx affected --target=test --base=HEAD~
+      - yarn nx affected --target=lint --base=HEAD~
   build:
     commands:
-      - yarn nx affected --target=build --base=$GIT_BASE --configuration=$BUILD_CONFIGURATION
+      - yarn nx affected --target=build --base=HEAD~ --configuration=$BUILD_CONFIGURATION
   # post_build:
   #   commands:
   #     - aws s3 rm $S3_BUCKET --recursive
