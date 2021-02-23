@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 import { UiModule } from '@frontend/ui';
-import { AuthModule } from '@frontend/auth';
+import { AuthModule, AuthState } from '@frontend/auth';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { environment } from '../environments/environment';
@@ -26,7 +26,7 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
     RouterModule,
     UiModule.forRoot(),
     AuthModule.forRoot(),
-    NgxsModule.forRoot([ItemsState], {
+    NgxsModule.forRoot([ItemsState, AuthState], {
       developmentMode: !environment.production,
     }),
     NgxsStoragePluginModule.forRoot(),

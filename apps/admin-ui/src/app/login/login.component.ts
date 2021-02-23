@@ -6,7 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '@frontend/auth';
+import { AuthService, Login } from '@frontend/auth';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'frontend-login',
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
   ]);
 
   constructor(
-    private authService: AuthService,
+    // private authService: AuthService,
+    private store: Store,
     private router: Router,
     private formBuilder: FormBuilder
   ) {}
@@ -36,8 +38,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.authService
-      .signIn(this.usernameControl.value, this.passwordControl.value)
-      .then(() => this.router.navigate(['/dashboard']));
+    this.store.dispatch(
+      new Login(this.usernameControl.value, this.passwordControl.value)
+    );
+    // this.authService
+    //   .signIn(this.usernameControl.value, this.passwordControl.value)
+    //   .then(() => this.router.navigate(['/dashboard']));
   }
 }
