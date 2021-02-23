@@ -6,3 +6,5 @@ export * from './lib/dialogs/confirm/confirm.component';
 export * from './model/login-result';
 export * from './helper/globals';
 export * from './test/mock/mock-auth.service';
+export * from './store/auth.actions';
+export * from './store/auth.state';

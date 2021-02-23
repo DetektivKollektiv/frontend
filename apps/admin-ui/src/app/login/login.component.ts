@@ -5,8 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from '@frontend/auth';
+import { Login } from '@frontend/auth';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'frontend-login',
@@ -23,11 +23,7 @@ export class LoginComponent implements OnInit {
     Validators.required,
   ]);
 
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-    private formBuilder: FormBuilder
-  ) {}
+  constructor(private store: Store, private formBuilder: FormBuilder) {}
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: this.usernameControl,
@@ -36,8 +32,8 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.authService
-      .signIn(this.usernameControl.value, this.passwordControl.value)
-      .then(() => this.router.navigate(['/dashboard']));
+    this.store.dispatch(
+      new Login(this.usernameControl.value, this.passwordControl.value)
+    );
   }
 }

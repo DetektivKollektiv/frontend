@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UiModule } from '../ui.module';
+import { DependenciesModule } from '../dependencies.module';
 
 import { LoaderComponent } from './loader.component';
+import { LoaderService } from './service/loader.service';
 
 describe('LoaderComponent', () => {
   let component: LoaderComponent;
@@ -10,7 +11,8 @@ describe('LoaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LoaderComponent],
-      imports: [UiModule.forRoot()],
+      imports: [DependenciesModule],
+      providers: [LoaderService],
     }).compileComponents();
   });
 
