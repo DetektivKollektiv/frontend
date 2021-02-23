@@ -1,18 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { environment } from '../environments/environment';
 
-import {
-  AuthService,
-  AuthState,
-  ConfirmComponent,
-  Globals,
-  LoginDialogComponent,
-  LoginResult,
-  LoginResultReason,
-  Logout,
-} from '@frontend/auth';
+import { AuthState, Logout } from '@frontend/auth';
 import { Observable, Subscription } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { FetchAllItems } from './store/items/items.actions';
@@ -38,7 +28,6 @@ export class AppComponent implements OnInit, OnDestroy {
   private authSubscription: Subscription;
 
   constructor(
-    private authService: AuthService,
     private router: Router,
     private loader: LoaderService,
     private store: Store
@@ -71,19 +60,5 @@ export class AppComponent implements OnInit, OnDestroy {
             .subscribe(() => this.router.navigate(['/dashboard']));
         }
       });
-
-    // this.authSubscription = this.authService.isLoggedIn$
-    //   .pipe(finalize(() => this.loader.hide()))
-    //   .subscribe((isLoggedIn) => {
-    //     this.loggedIn = isLoggedIn;
-
-    //     if (!isLoggedIn) {
-    //       this.router.navigate(['/login']);
-    //     } else {
-    //       this.store
-    //         .dispatch(new FetchAllItems())
-    //         .subscribe(() => this.router.navigate(['/dashboard']));
-    //     }
-    //   });
   }
 }
