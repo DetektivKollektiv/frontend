@@ -40,7 +40,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { DependenciesModule } from './dependencies.module';
 
 @NgModule({
-  imports: [CommonModule, DataModule],
+  imports: [CommonModule, DataModule, DependenciesModule],
   declarations: [
     TableToolbarComponent,
     LoaderComponent,
