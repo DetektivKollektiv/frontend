@@ -1,19 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { environment } from '../environments/environment';
 
-import {
-  AuthService,
-  ConfirmComponent,
-  Globals,
-  LoginDialogComponent,
-  LoginResult,
-  LoginResultReason,
-} from '@frontend/auth';
-import { Subscription } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
+import { AuthState, Logout } from '@frontend/auth';
+import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { Store } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { FetchAllItems } from './store/items/items.actions';
+import { LoaderService } from '@frontend/ui';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'frontend-root',
@@ -21,6 +15,8 @@ import { FetchAllItems } from './store/items/items.actions';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
+  @Select(AuthState.loggedIn) loggedIn$: Observable<boolean>;
+
   public stage = environment.stage;
 
   public links = [
@@ -32,8 +28,8 @@ export class AppComponent implements OnInit, OnDestroy {
   private authSubscription: Subscription;
 
   constructor(
-    private authService: AuthService,
     private router: Router,
+    private loader: LoaderService,
     private store: Store
   ) {}
 
@@ -42,7 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.authService.signOut().then().catch().finally();
+    this.store.dispatch(new Logout());
   }
 
   ngOnDestroy(): void {
@@ -50,18 +46,19 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.authSubscription = this.authService.isLoggedIn$.subscribe(
-      (isLoggedIn) => {
-        this.loggedIn = isLoggedIn;
+    this.loader.show();
 
-        if (!isLoggedIn) {
+    this.authSubscription = this.loggedIn$
+      .pipe(finalize(() => this.loader.hide()))
+      .subscribe((loggedIn: boolean) => {
+        this.loggedIn = loggedIn;
+        if (!loggedIn) {
           this.router.navigate(['/login']);
         } else {
           this.store
             .dispatch(new FetchAllItems())
             .subscribe(() => this.router.navigate(['/dashboard']));
         }
-      }
-    );
+      });
   }
 }

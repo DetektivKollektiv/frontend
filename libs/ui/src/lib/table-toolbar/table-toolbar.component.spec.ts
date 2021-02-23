@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableToolbarComponent } from './table-toolbar.component';
 
-import { UiModule } from '../ui.module';
+import { DependenciesModule } from '../dependencies.module';
 
 describe('TableToolbarComponent', () => {
   let component: TableToolbarComponent;
@@ -11,7 +11,7 @@ describe('TableToolbarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TableToolbarComponent],
-      imports: [UiModule],
+      imports: [DependenciesModule],
     }).compileComponents();
   });
 
