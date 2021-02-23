@@ -37,48 +37,16 @@ import { DataModule } from '@frontend/data';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './loader/service/loader.service';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
-
-const modules = [
-  MatSidenavModule,
-  MatToolbarModule,
-  MatIconModule,
-  MatListModule,
-  MatButtonModule,
-  MatInputModule,
-  MatDialogModule,
-  MatProgressSpinnerModule,
-  ReactiveFormsModule,
-  OverlayModule,
-  MatSnackBarModule,
-  MatTabsModule,
-  MatExpansionModule,
-  MatStepperModule,
-  MatCheckboxModule,
-  MatRadioModule,
-  MatDatepickerModule,
-  MatMenuModule,
-  MatCardModule,
-  MatGridListModule,
-  MatProgressBarModule,
-  MatBadgeModule,
-  MatTooltipModule,
-  MatChipsModule,
-  MatTableModule,
-  MatSortModule,
-  MatPaginatorModule,
-  MatSelectModule,
-  FormsModule,
-  NgxChartsModule,
-];
+import { DependenciesModule } from './dependencies.module';
 
 @NgModule({
-  imports: [CommonModule, DataModule, ...modules],
+  imports: [CommonModule, DataModule],
   declarations: [
     TableToolbarComponent,
     LoaderComponent,
     ConfirmDialogComponent,
   ],
-  exports: [...modules, TableToolbarComponent],
+  exports: [DependenciesModule, TableToolbarComponent],
 })
 export class UiModule {
   static forRoot(): ModuleWithProviders<UiModule> {

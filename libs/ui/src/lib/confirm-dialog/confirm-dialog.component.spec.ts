@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UiModule } from '../ui.module';
+import { DependenciesModule } from '../dependencies.module';
 
 import { ConfirmDialogComponent } from './confirm-dialog.component';
 
@@ -11,7 +11,7 @@ describe('ConfirmDialogComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ConfirmDialogComponent],
-      imports: [UiModule.forRoot()],
+      imports: [DependenciesModule],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: {} },
         { provide: MatDialogRef, useValue: {} },
