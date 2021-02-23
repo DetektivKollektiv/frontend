@@ -14,6 +14,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { FetchAllItems } from './store/items/items.actions';
+import { LoaderService } from '@frontend/ui';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'frontend-root',
@@ -34,6 +36,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private loader: LoaderService,
     private store: Store
   ) {}
 
@@ -50,8 +53,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.authSubscription = this.authService.isLoggedIn$.subscribe(
-      (isLoggedIn) => {
+    this.loader.show();
+
+    this.authSubscription = this.authService.isLoggedIn$
+      .pipe(finalize(() => this.loader.hide()))
+      .subscribe((isLoggedIn) => {
         this.loggedIn = isLoggedIn;
 
         if (!isLoggedIn) {
@@ -61,7 +67,6 @@ export class AppComponent implements OnInit, OnDestroy {
             .dispatch(new FetchAllItems())
             .subscribe(() => this.router.navigate(['/dashboard']));
         }
-      }
-    );
+      });
   }
 }

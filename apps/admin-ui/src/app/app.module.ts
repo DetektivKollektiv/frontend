@@ -15,6 +15,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { ItemsService } from './services/items/items.service';
 import { ItemsState } from './store/items/items.state';
 import { LoginComponent } from './login/login.component';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -28,6 +29,7 @@ import { LoginComponent } from './login/login.component';
     NgxsModule.forRoot([ItemsState], {
       developmentMode: !environment.production,
     }),
+    NgxsStoragePluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot({
       disabled: environment.production,
     }),
