@@ -5,7 +5,7 @@ import { AuthService } from './service/auth.service';
 import { ConfirmComponent } from './dialogs/confirm/confirm.component';
 import { ForgotPasswordComponent } from './dialogs/forgot-password/forgot-password.component';
 import { ForgotPasswordSubmitComponent } from './dialogs/forgot-password-submit/forgot-password-submit.component';
-import { LoginComponent } from './dialogs/login/login.component';
+import { LoginDialogComponent } from './dialogs/login-dialog/login-dialog.component';
 import { SignupComponent } from './dialogs/signup/signup.component';
 
 import { UiModule } from '@frontend/ui';
@@ -15,7 +15,7 @@ import { UiModule } from '@frontend/ui';
     ConfirmComponent,
     ForgotPasswordComponent,
     ForgotPasswordSubmitComponent,
-    LoginComponent,
+    LoginDialogComponent,
     SignupComponent,
   ],
   imports: [CommonModule, UiModule],
@@ -23,7 +23,7 @@ import { UiModule } from '@frontend/ui';
     ConfirmComponent,
     ForgotPasswordComponent,
     ForgotPasswordSubmitComponent,
-    LoginComponent,
+    LoginDialogComponent,
     SignupComponent,
   ],
 })

@@ -54,7 +54,7 @@ mat-toolbar {
 
 .content {
   display: flex;
-  flex: 1;
+  flex-grow: 1 1 auto;
   justify-content: center;
   justify-self: center;
   padding: 10px;

@@ -1,14 +1,9 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-} from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { Auth } from 'aws-amplify';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { LoginComponent } from '../dialogs/login/login.component';
+import { LoginDialogComponent } from '../dialogs/login-dialog/login-dialog.component';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -27,7 +22,9 @@ export class AuthGuard implements CanActivate {
         duration: 2000,
       });
 
-      snackBar.onAction().subscribe(() => this.dialog.open(LoginComponent));
+      snackBar
+        .onAction()
+        .subscribe(() => this.dialog.open(LoginDialogComponent));
       snackBar.afterDismissed().subscribe(() => this.router.navigate(['/']));
       return false;
     }

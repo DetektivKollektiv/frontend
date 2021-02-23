@@ -17,7 +17,7 @@ export class ItemsStateModel {
   },
 })
 @Injectable()
-export class ItemsState implements NgxsOnInit {
+export class ItemsState /*implements NgxsOnInit*/ {
   @Selector()
   static allItems(state: ItemsStateModel) {
     return state.items;
@@ -40,9 +40,9 @@ export class ItemsState implements NgxsOnInit {
 
   constructor(private itemsService: ItemsService) {}
 
-  ngxsOnInit(ctx?: StateContext<ItemsStateModel>) {
-    ctx.dispatch(new FetchAllItems());
-  }
+  // ngxsOnInit(ctx?: StateContext<ItemsStateModel>) {
+  //   ctx.dispatch(new FetchAllItems());
+  // }
 
   @Action(FetchAllItems)
   fetchAllItems({ patchState }: StateContext<ItemsStateModel>) {

@@ -14,10 +14,10 @@ import { Globals } from '../../../helper/globals';
 
 @Component({
   selector: 'frontend-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  templateUrl: './login-dialog.component.html',
+  styleUrls: ['./login-dialog.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginDialogComponent implements OnInit {
   public loginForm: FormGroup;
   public loginInvalid: boolean;
   closeResult = {
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   } as LoginResult;
 
   constructor(
-    public dialogRef: MatDialogRef<LoginComponent>,
+    public dialogRef: MatDialogRef<LoginDialogComponent>,
     private authService: AuthService,
     private loaderService: LoaderService,
     private dialog: MatDialog,
