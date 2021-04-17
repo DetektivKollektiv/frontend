@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   stage: 'dev',
-  apiBase: 'https://api.dev.detektivkollektiv.org/admin_service',
+  apiBase: 'https://api.dev.codetekt.org/admin_service',
   auth: {
     identityPoolId: 'eu-central-1:69722fe9-a444-4aa5-8016-129a273b2fa5',
     region: 'eu-central-1',
