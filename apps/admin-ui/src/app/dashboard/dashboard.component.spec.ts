@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { UiModule } from '@frontend/ui';
 import { NgxsModule } from '@ngxs/store';
 import { MockItemsService } from '../../test/mock/mock-items.service';
@@ -14,7 +15,11 @@ describe('DashboardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardComponent],
-      imports: [UiModule.forRoot(), NgxsModule.forRoot([ItemsState])],
+      imports: [
+        UiModule.forRoot(),
+        NgxsModule.forRoot([ItemsState]),
+        NoopAnimationsModule,
+      ],
       providers: [{ provide: ItemsService, useClass: MockItemsService }],
     }).compileComponents();
   });
