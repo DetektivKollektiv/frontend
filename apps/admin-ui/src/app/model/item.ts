@@ -1,3 +1,4 @@
+import { ItemType } from './itemType';
 import { Submission } from './submission';
 
 export interface Item {
@@ -15,5 +16,6 @@ export interface Item {
   close_timestamp?: string;
   in_progress_reviews_level_1: number;
   in_progress_reviews_level_2: number;
+  item_type: ItemType;
   submissions: Submission[];
 }

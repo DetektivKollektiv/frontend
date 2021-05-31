@@ -17,32 +17,26 @@ export class ItemsStateModel {
   },
 })
 @Injectable()
-export class ItemsState /*implements NgxsOnInit*/ {
+export class ItemsState {
+  @Selector()
+  static groupedItems(state: ItemsStateModel) {
+    return state.items.reduce((acc, val) => {
+      if (!acc[val.status]) {
+        acc[val.status] = [];
+      }
+
+      acc[val.status].push(val);
+
+      return acc;
+    }, {});
+  }
+
   @Selector()
   static allItems(state: ItemsStateModel) {
     return state.items;
   }
 
-  @Selector()
-  static unconfirmedItems(state: ItemsStateModel) {
-    return state.items.filter((s) => s.status === 'unconfirmed');
-  }
-
-  @Selector()
-  static openItems(state: ItemsStateModel) {
-    return state.items.filter((s) => s.status === 'open');
-  }
-
-  @Selector()
-  static closedItems(state: ItemsStateModel) {
-    return state.items.filter((s) => s.status === 'closed');
-  }
-
   constructor(private itemsService: ItemsService) {}
-
-  // ngxsOnInit(ctx?: StateContext<ItemsStateModel>) {
-  //   ctx.dispatch(new FetchAllItems());
-  // }
 
   @Action(FetchAllItems)
   fetchAllItems({ patchState }: StateContext<ItemsStateModel>) {

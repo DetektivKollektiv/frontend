@@ -40,6 +40,7 @@ export class ItemsComponent implements OnInit {
   public displayedColumns: string[] = [
     'select',
     'content',
+    'item_type',
     'status',
     'open_timestamp',
     'language',
