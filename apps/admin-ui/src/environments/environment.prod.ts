@@ -3,9 +3,9 @@ export const environment = {
   stage: 'prod',
   apiBase: 'https://api.codetekt.org/admin_service',
   auth: {
-    identityPoolId: 'eu-central-1:69722fe9-a444-4aa5-8016-129a273b2fa5',
+    identityPoolId: 'eu-central-1:0b84c4fd-977e-4376-b011-e4f1884175df',
     region: 'eu-central-1',
-    userPoolId: 'eu-central-1_edLkAIQVL',
+    userPoolId: 'eu-central-1_xARdELzvv',
     clientId: '2q0jjvfusdtedg1r3aac6ga3pi',
   },
 };
