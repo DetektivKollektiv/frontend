@@ -10,6 +10,11 @@ export class ItemsService {
   }
 
   public updateItem(id: string, item: Item): Observable<Item> {
+    
+    // TODO: Find better solution. Problem: Using Aplify's API request doesn't correctly parse the JSON into an item. 
+    delete item['open_timestamp'];
+    delete item['close_timestamp'];
+
     return from(API.put('admin_service', `/items/${id}`, { body: item }));
   }
 }
